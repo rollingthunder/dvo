@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.4.6)
 
+include(CheckForSSE.cmake)
+
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
@@ -24,6 +26,8 @@ include_directories(${TBB_INCLUDE_DIRS})
 # VTK library
 #find_package(VTK REQUIRED)
 #include_directories(${VTK_INCLUDE_DIRS})
+
+check_for_sse()
 
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO
    "${SSE_FLAGS} -O3 -march=native"
