@@ -26,8 +26,11 @@
 #include <pmmintrin.h>
 
 //#include "../stopwatch.h"
-
+#if _WIN32
+#define ALIGN __declspec(align(16))
+#else
 #define ALIGN __attribute__((__aligned__(16)))
+#endif
 
 
 namespace dvo

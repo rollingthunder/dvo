@@ -18,6 +18,8 @@
  *  along with dvo.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <stdsupplement.hpp>
+
 #include <tbb/parallel_reduce.h>
 #include <tbb/blocked_range.h>
 

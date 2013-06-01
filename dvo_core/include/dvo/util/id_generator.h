@@ -21,6 +21,10 @@
 #ifndef ID_GENERATOR_H_
 #define ID_GENERATOR_H_
 
+#include <string>
+#include <sstream>
+#include <vector>
+
 namespace dvo
 {
 namespace util
