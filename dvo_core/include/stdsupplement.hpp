@@ -6,17 +6,17 @@
 #include <limits>
 namespace std
 {
-	bool isIndeterminate(const double pV)
+	inline bool isIndeterminate(const double pV)
 	{
 		return (pV != pV);
 	} 
 
-	bool isInfinite(const double pV)
+	inline bool isInfinite(const double pV)
 	{
 		return (fabs(pV) == std::numeric_limits<double>::infinity());
 	}
 
-	bool isfinite(const double arg)
+	inline bool isfinite(const double arg)
 	{
 		return !(isInfinite(arg) || isIndeterminate(arg));
 	}

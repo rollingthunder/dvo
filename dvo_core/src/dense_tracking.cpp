@@ -31,7 +31,6 @@
 #include <dvo/core/datatypes.h>
 #include <dvo/util/revertable.h>
 #include <dvo/util/stopwatch.h>
-#include <dvo/visualization/visualizer.h>
 
 #include <tbb/task_scheduler_init.h>
 #include <tbb/parallel_reduce.h>
