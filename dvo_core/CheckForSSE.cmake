@@ -4,7 +4,7 @@
 macro(check_for_sse)
   # check for SSE extensions
   include(CheckCXXSourceRuns)
-  if( CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX )
+  if( NOT MSVC )
    set(SSE_FLAGS)
   
    set(CMAKE_REQUIRED_FLAGS "-msse3")

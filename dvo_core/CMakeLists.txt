@@ -19,15 +19,22 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 find_package(Eigen REQUIRED)
 include_directories(${Eigen_INCLUDE_DIRS})
 
+message(ERROR "${CMAKE_MODULE_PATH}")
+
 # Intel Thread Building Blocks
-find_package(TBB)
+find_package(TBB REQUIRED)
 include_directories(${TBB_INCLUDE_DIRS})
+
+#Sophus
+include_directories(Sophus_INCLUDE_DIRS)
 
 # VTK library
 #find_package(VTK REQUIRED)
 #include_directories(${VTK_INCLUDE_DIRS})
 
 check_for_sse()
+
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO
    "${SSE_FLAGS} -O3 -march=native"
@@ -49,17 +56,17 @@ add_library(${PROJECT_NAME}
     
     src/util/histogram.cpp
     
-    src/visualization/async_point_cloud_builder.cpp
-    src/visualization/point_cloud_aggregator.cpp
-    src/visualization/visualizer.cpp
-    src/visualization/camera_trajectory_visualizer.cpp
-    src/visualization/pcl_camera_trajetory_visualizer.cpp
+    #src/visualization/async_point_cloud_builder.cpp
+    #src/visualization/point_cloud_aggregator.cpp
+    #src/visualization/visualizer.cpp
+    #src/visualization/camera_trajectory_visualizer.cpp
+    #src/visualization/pcl_camera_trajetory_visualizer.cpp
     
     src/dense_tracking.cpp
     src/dense_tracking_config.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} 
-    tbb
+    ${TBB_LIBRARIES}
     boost_thread
 )
