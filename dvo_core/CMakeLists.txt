@@ -19,7 +19,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 find_package(Eigen REQUIRED)
 include_directories(${Eigen_INCLUDE_DIRS})
 
-message(ERROR "${CMAKE_MODULE_PATH}")
+#Sophus
+include_directories("../sophus")
 
 # Intel Thread Building Blocks
 find_package(TBB REQUIRED)
